@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I am so sorry, my love! ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe6eb 0%, #def3f6 100%);
+            font-family: 'Poppins', sans-serif, cursive;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Heart & Flower Floating Animation */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-item {
+            position: absolute;
+            bottom: -50px;
+            font-size: 24px;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Card Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.4);
+            border: 3px solid #fff;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* Teddy Animation */
+        .teddy-container {
+            font-size: 80px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .bengali-msg {
+            color: #4a4a4a;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* English Apology Quotes Box */
+        .english-quotes {
+            background: #fff5f7;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-left: 4px solid #ff4d6d;
+            text-align: left;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .english-quotes p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .english-quotes p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Interactive Buttons */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .forgive-btn {
+            background-color: #ff4d6d;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .forgive-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff2a55;
+        }
+
+        .no-btn {
+            background-color: #a8a8a8;
+            color: white;
+            position: relative;
+        }
+
+        /* Success Popup */
+        .success-screen {
+            display: none;
+        }
+
+        .success-screen h2 {
+            color: #ff4d6d;
+            margin-bottom: 15px;
+        }
+
+        .hug-gif {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-bg" id="floatingBg"></div>
+
+    <div class="card" id="mainCard">
+        <div class="teddy-container">
+            🧸
+        </div>
+        <h1>I'm So Sorry, My Cutie! 🌸</h1>
+        
+        <p class="bengali-msg">
+            আমায় ক্ষমা করে দাও সোনা! তোমার রাগ ভাঙানোর জন্য আমি যা করতে হয় করব। ভুলটা আমারই ছিল, আর তোমাকে এভাবে কষ্ট দেওয়ার জন্য আমি সত্যিই খুব লজ্জিত। প্লিজ আর রাগ করে থেকো না! 🥺❤️
+        </p>
+
+        <div class="english-quotes">
+            <p>✨ "I never meant to hurt you. You mean the absolute world to me."</p>
+            <p>✨ "My life feels so empty when you are mad at me. Please forgive me!"</p>
+            <p>✨ "I promise to learn from my mistakes and be better for you every single day."</p>
+            <p>✨ "Your smile is my favorite thing in the world. Can I have it back, please?"</p>
+            <p>✨ "Life is too short to be mad at someone who loves you as much as I do."</p>
+        </div>
+
+        <div class="btn-group">
+            <button class="forgive-btn" onclick="forgiveMe()">Forgive Me? ❤️</button>
+            <button class="no-btn" id="noBtn" onmouseover="moveButton()">Still Mad! 😤</button>
+        </div>
+    </div>
+
+    <div class="card success-screen" id="successCard">
+        <div style="font-size: 80px; margin-bottom: 10px;">🤗🌸✨</div>
+        <h2>Yay! Thank You My Love! ❤️</h2>
+        <p class="bengali-msg">
+            আই লাভ ইউ সো মাচ! আর কখনো তোমাকে কষ্ট দেব না, প্রমিস! 💖
+        </p>
+    </div>
+
+    <script>
+        // Floating Flowers & Hearts Creation
+        const floatingBg = document.getElementById('floatingBg');
+        const items = ['🌸', '🌺', '💖', '🧸', '✨', '🌹'];
+
+        function createFloatingItem() {
+            const item = document.createElement('div');
+            item.classList.add('floating-item');
+            item.innerText = items[Math.floor(Math.random() * items.length)];
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            item.style.fontSize = (Math.random() * 15 + 20) + 'px';
+            floatingBg.appendChild(item);
+
+            setTimeout(() => {
+                item.remove();
+            }, 8000);
+        }
+
+        setInterval(createFloatingItem, 400);
+
+        // Runaway "No" Button (Cute Prank)
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - 100) - (window.innerWidth / 2 - 50);
+            const y = Math.random() * (window.innerHeight - 100) - (window.innerHeight / 2 - 50);
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        // Forgive Action
+        function forgiveMe() {
+            document.getElementById('mainCard').style.display = 'none';
+            document.getElementById('successCard').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
